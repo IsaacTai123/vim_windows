@@ -1,0 +1,93 @@
+"--------------
+" Plugins
+"--------------
+call plug#begin('~/.vim/plugged')
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'scrooloose/nerdtree'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'mattn/emmet-vim'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'terryma/vim-multiple-cursors'
+
+  " for general purpose development
+  Plug 'tomtom/tcomment_vim'
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+  Plug 'garbas/vim-snipmate'
+  Plug 'honza/vim-snippets'
+  Plug 'majutsushi/tagbar'
+  Plug 'mileszs/ack.vim'
+  Plug 'airblade/vim-gitgutter'
+
+  " for ruby/rails development
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'tpope/vim-rails'
+  Plug 'thoughtbot/vim-rspec'
+
+  " for vue.js development
+  Plug 'leafOfTree/vim-vue-plugin'
+
+  "for Pythone
+  Plug 'ycm-core/YouCompleteMe'
+  Plug 'Yggdroot/indentLine'
+  Plug 'tell-k/vim-autopep8'
+  Plug 'nvie/vim-flake8'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'kien/rainbow_parentheses.vim'
+call plug#end()
+
+"--------------
+" Settings
+"--------------
+set nocompatible
+set clipboard=unnamed
+set noswapfile
+set hidden
+set nobomb            " no BOM(Byte Order Mark)
+set mouse=a
+
+"--------------
+" Filetype and Encoding
+"--------------
+filetype on
+filetype indent on
+filetype plugin on
+
+" file encoding
+set encoding=utf-8
+scriptencoding utf-8
+
+"--------------
+" key mapping
+"--------------
+let mapleader = ","
+
+
+" Settings for windows
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h9
+  elseif has("gui_win32")
+    set guioptions-=m  "menu bar
+    set guioptions-=T  "toolbar
+    set guioptions-=r  "right scrollbar
+    set guioptions-=L  "left scrollbar
+    set guifont=Consolas:h9:cANSI
+    let $LANG = 'en'  "set message language
+
+  endif
+endif
+
+" set pythonthreehome=C:\Users\user\AppData\Local\Programs\Python\Python39
+" set pythonthreedll=C:\Users\user\AppData\Local\Programs\Python\Python39\python39.dll
+
+set pythonthreehome=C:\ProgramData\Anaconda3
+set pythonthreedll=C:\ProgramData\Anaconda3\python38.dll
+
+
+map <F10> <Esc> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
